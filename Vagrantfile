@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
   config.vm.network :forwarded_port, guest: 3000, host: 3000  # Rails Puma
   config.vm.network :forwarded_port, guest: 4444, host: 4444  # Selenium
   config.vm.network :forwarded_port, guest: 9222, host: 9222  # Chromedriver
-  # Copied SSH keys and Git config
+  # Copy SSH keys and Git config
   config.vm.provision :file, source: "~/.ssh", destination: "$HOME/.ssh"
   config.vm.provision :file, source: "~/.gitconfig", destination: "$HOME/.gitconfig"
   # Provision bash script
