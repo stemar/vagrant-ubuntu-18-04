@@ -11,7 +11,7 @@ plus install Python, Ruby, Rails, Node.js, Codeception, Java, Selenium, headless
 - Use a clean Ubuntu 18.04 box available from Bento with 64GB HDD virtual space.
 - Leave code and version control files physically outside the VM while virtually accessing them inside the VM.
 - Use any GUI tool outside the VM to access data inside the VM.
-    - browsers, IDEs, database administration applications, Git clients
+    - IDEs, browsers, database administration applications, Git clients
 - Use `http://localhost:8000` in a browser outside the VM to access Apache inside the VM.
 - Use the same SSH keys inside and outside VM.
 - Use the same Git config inside and outside VM.
