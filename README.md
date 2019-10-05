@@ -91,7 +91,7 @@ tree -F --dirsfirst ~/vm
     │   ├── localhost.conf
     │   ├── php.ini.htaccess
     │   └── virtualhost.conf
-    ├── LICENSE.md
+    ├── LICENSE
     ├── README.md
     ├── Vagrantfile
     └── ubuntu-18-04.sh
