@@ -540,7 +540,7 @@ php_value memory_limit 512M
 
 In host terminal:
 
-```console
+```bash
 cd ~/vm/ubuntu-18-04
 vagrant up --provision
 ```
@@ -549,7 +549,7 @@ vagrant up --provision
 
 ### If something goes wrong
 
-```console
+```bash
 vagrant halt -f
 vagrant destroy -f
 vagrant up --provision
@@ -557,7 +557,7 @@ vagrant up --provision
 
 ## Log in ubuntu-18-04
 
-```console
+```bash
 vagrant ssh
 ```
 
@@ -573,7 +573,7 @@ vagrant@ubuntu-18-04:~$
 
 ### Test `ll` alias and show .bashrc
 
-```console
+```bash
 ll
 ...
 cat ~/.bashrc
@@ -581,14 +581,14 @@ cat ~/.bashrc
 
 ### Check MariaDB root no password
 
-```console
+```bash
 mysql -u root
 MariaDB [(none)]> SHOW DATABASES; quit;
 ```
 
 ## Check Apache
 
-```console
+```bash
 cat /etc/hosts
 cat /etc/apache2/apache2.conf
 cat /etc/apache2/envvars
@@ -605,7 +605,7 @@ apachectl configtest
 
 ### In guest terminal
 
-```console
+```bash
 curl -I localhost
 ```
 
@@ -634,7 +634,7 @@ You see the `example.com` home page.
 
 ### In guest terminal
 
-```console
+```bash
 curl -I localhost/adminer.php
 ```
 
@@ -667,5 +667,3 @@ http://localhost:8000/adminer.php
 - Bento GitHub: <https://github.com/chef/bento>
 - <https://www.howtoforge.com/tutorial/install-apache-with-php-and-mysql-on-ubuntu-18-04-lamp>
 - <https://linuxize.com/post/how-to-install-mariadb-on-ubuntu-18-04>
-
----
