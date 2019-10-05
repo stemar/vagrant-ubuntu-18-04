@@ -143,6 +143,8 @@ end
 ### Provision file ubuntu-18-04.sh
 
 ```bash
+VM_CONFIG_PATH=/home/vagrant/vm/ubuntu-18-04/config
+
 echo '==> Setting time zone'
 
 timedatectl set-timezone Canada/Pacific
@@ -200,8 +202,6 @@ if [ ! -d /usr/share/adminer ]; then
 fi
 
 echo '==> Configuring Apache'
-
-VM_CONFIG_PATH=/home/vagrant/vm/ubuntu-18-04/config
 
 # Localhost
 cp $VM_CONFIG_PATH/localhost.conf /etc/apache2/conf-available/localhost.conf
@@ -551,6 +551,8 @@ vagrant up --provision
 
 ### If something goes wrong
 
+In host terminal:
+
 ```bash
 vagrant halt -f
 vagrant destroy -f
@@ -558,6 +560,8 @@ vagrant up --provision
 ```
 
 ## Log in ubuntu-18-04
+
+In host terminal:
 
 ```bash
 vagrant ssh
@@ -575,6 +579,8 @@ vagrant@ubuntu-18-04:~$
 
 ### Test `ll` alias and show .bashrc
 
+In guest terminal:
+
 ```bash
 ll
 ...
@@ -583,12 +589,16 @@ cat ~/.bashrc
 
 ### Check MariaDB root no password
 
+In guest terminal:
+
 ```bash
 mysql -u root
 MariaDB [(none)]> SHOW DATABASES; quit;
 ```
 
 ## Check Apache
+
+In guest terminal:
 
 ```bash
 cat /etc/hosts
@@ -603,11 +613,6 @@ cat /etc/apache2/sites-available/virtualhost.conf
 cat /etc/apache2/conf-available/adminer.conf
 apachectl -V
 apachectl configtest
-```
-
-### In guest terminal
-
-```bash
 curl -I localhost
 ```
 

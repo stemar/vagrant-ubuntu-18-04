@@ -1,3 +1,5 @@
+VM_CONFIG_PATH=/home/vagrant/vm/ubuntu-18-04/config
+
 echo '==> Setting time zone'
 
 timedatectl set-timezone Canada/Pacific
@@ -55,8 +57,6 @@ if [ ! -d /usr/share/adminer ]; then
 fi
 
 echo '==> Configuring Apache'
-
-VM_CONFIG_PATH=/home/vagrant/vm/ubuntu-18-04/config
 
 # Localhost
 cp $VM_CONFIG_PATH/localhost.conf /etc/apache2/conf-available/localhost.conf
