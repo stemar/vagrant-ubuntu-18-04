@@ -10,15 +10,17 @@ plus install Python, Ruby, Rails, Node.js, Codeception, Java, Selenium, headless
 
 - Use a clean Ubuntu 18.04 box available from Bento with 64GB HDD virtual space.
 - Leave code and version control files physically outside the VM while virtually accessing them inside the VM.
-- Use any GUI tool &mdash; browsers, IDEs, database administration applications, Git clients &mdash; outside the VM to access data inside the VM.
+- Use any GUI tool outside the VM to access data inside the VM.
+    - browsers, IDEs, database administration applications, Git clients
 - Use `http://localhost:8000` in a browser outside the VM to access Apache inside the VM.
 - Use the same SSH keys inside and outside VM.
 - Use the same Git config inside and outside VM.
-- Have `Vagrantfile` and its provision file be located anywhere on your host machine, independently of your projects directory.
+- Have `Vagrantfile` and its provision file be located anywhere on your host machine, independently of your projects location.
 - Use `~` as `/home/vagrant` inside the VM for the location of synchronized directories.
     - Disable the default `/vagrant` synchronized to `Vagrantfile`'s location.
 - Use Bash for provisioning.
     - Every developer will know Bash; not every developer will know Ansible, Chef and Puppet.
+    - You copy/paste the Bash commands if you configured a VirtualBox manually without Vagrant.
 - Use MariaDB and Adminer without a password for username `root`.
 - Use Apache `.conf` files outside the VM to customize the web server configuration inside the VM.
 - Use `rbenv` to install Ruby.
