@@ -78,7 +78,7 @@ In host terminal:
 ```bash
 mkdir -p ~/vm && cd ~/vm
 git clone https://github.com/stemar/vagrant-ubuntu-18-04.git ubuntu-18-04
-tree -F --dirsfirst -I ".git" ~/vm
+tree -aF --dirsfirst -I ".git" ~/vm
 ```
 
 ```console
