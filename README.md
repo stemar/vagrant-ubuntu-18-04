@@ -17,7 +17,6 @@ plus install Python, Ruby, Rails, Node.js, Codeception, Java, Selenium, headless
 - Have `Vagrantfile` and its provision file be located anywhere on your host machine, independently of your projects directory.
 - Use `~` as `/home/vagrant` inside the VM for the location of synchronized directories.
     - Disable the default `/vagrant` synchronized to `Vagrantfile`'s location.
-    - Put your projects directory in `~` inside the VM so your projects are located at `~/Web`.
 - Use Bash for provisioning.
     - Every developer will know Bash; not every developer will know Ansible, Chef and Puppet.
 - Use MariaDB and Adminer without a password for username `root`.
@@ -79,7 +78,7 @@ In host terminal:
 ```bash
 mkdir -p ~/vm && cd ~/vm
 git clone https://github.com/stemar/vagrant-ubuntu-18-04.git ubuntu-18-04
-tree -F --dirsfirst ~/vm
+tree -F --dirsfirst -I ".git" ~/vm
 ```
 
 ```console
@@ -91,6 +90,7 @@ tree -F --dirsfirst ~/vm
     │   ├── localhost.conf
     │   ├── php.ini.htaccess
     │   └── virtualhost.conf
+    ├── .gitignore
     ├── LICENSE
     ├── README.md
     ├── Vagrantfile
