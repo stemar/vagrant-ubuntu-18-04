@@ -1,4 +1,4 @@
-VM_CONFIG_PATH=/home/vagrant/vm/ubuntu-18-04/config
+# CONFIG_PATH set as environment variable
 
 echo '==> Setting time zone'
 
@@ -59,22 +59,22 @@ fi
 echo '==> Configuring Apache'
 
 # Localhost
-cp $VM_CONFIG_PATH/localhost.conf /etc/apache2/conf-available/localhost.conf
+cp $CONFIG_PATH/localhost.conf /etc/apache2/conf-available/localhost.conf
 a2enconf localhost
 
 # VirtualHost(s)
-cp $VM_CONFIG_PATH/virtualhost.conf /etc/apache2/sites-available/virtualhost.conf
+cp $CONFIG_PATH/virtualhost.conf /etc/apache2/sites-available/virtualhost.conf
 a2ensite virtualhost
 
 # Adminer
-cp $VM_CONFIG_PATH/adminer.conf /etc/apache2/conf-available/adminer.conf
+cp $CONFIG_PATH/adminer.conf /etc/apache2/conf-available/adminer.conf
 a2enconf adminer
-cp $VM_CONFIG_PATH/adminer.php /usr/share/adminer/adminer.php
+cp $CONFIG_PATH/adminer.php /usr/share/adminer/adminer.php
 ESCAPED_ADMINER_VERSION=`echo $ADMINER_VERSION | sed 's/\./\\\\./g'`
 sed -i 's/ADMINER_VERSION/'$ESCAPED_ADMINER_VERSION'/' /usr/share/adminer/adminer.php
 
 # PHP.ini
-cp $VM_CONFIG_PATH/php.ini.htaccess /var/www/.htaccess
+cp $CONFIG_PATH/php.ini.htaccess /var/www/.htaccess
 
 # Modules
 a2enmod rewrite vhost_alias

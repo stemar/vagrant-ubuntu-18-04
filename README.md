@@ -111,7 +111,9 @@ Ex.: if the host machine has `~/projects` a.k.a. `/Users/stemar/projects`,
 the guest machine will have `~/projects`, a.k.a. `/home/vagrant/projects`.
 
 ```ruby
+# Projects path under home directory on host machine. Ex.: ~/projects
 projects_path = ENV["PROJECTS_PATH"] || "projects"
+
 Vagrant.require_version ">= 2.0.0"
 Vagrant.configure("2") do |config|
   config.vm.define "ubuntu-18-04"
@@ -138,14 +140,14 @@ Vagrant.configure("2") do |config|
   config.vm.provision :file, source: "~/.ssh", destination: "$HOME/.ssh"
   config.vm.provision :file, source: "~/.gitconfig", destination: "$HOME/.gitconfig"
   # Provision bash script
-  config.vm.provision :shell, path: "ubuntu-18-04.sh"
+  config.vm.provision :shell, path: "ubuntu-18-04.sh", env: {"CONFIG_PATH" => "/home/vagrant/vm/ubuntu-18-04/config"}
 end
 ```
 
 ### Provision file ubuntu-18-04.sh
 
 ```bash
-VM_CONFIG_PATH=/home/vagrant/vm/ubuntu-18-04/config
+# CONFIG_PATH set as environment variable
 
 echo '==> Setting time zone'
 
@@ -206,22 +208,22 @@ fi
 echo '==> Configuring Apache'
 
 # Localhost
-cp $VM_CONFIG_PATH/localhost.conf /etc/apache2/conf-available/localhost.conf
+cp $CONFIG_PATH/localhost.conf /etc/apache2/conf-available/localhost.conf
 a2enconf localhost
 
 # VirtualHost(s)
-cp $VM_CONFIG_PATH/virtualhost.conf /etc/apache2/sites-available/virtualhost.conf
+cp $CONFIG_PATH/virtualhost.conf /etc/apache2/sites-available/virtualhost.conf
 a2ensite virtualhost
 
 # Adminer
-cp $VM_CONFIG_PATH/adminer.conf /etc/apache2/conf-available/adminer.conf
+cp $CONFIG_PATH/adminer.conf /etc/apache2/conf-available/adminer.conf
 a2enconf adminer
-cp $VM_CONFIG_PATH/adminer.php /usr/share/adminer/adminer.php
+cp $CONFIG_PATH/adminer.php /usr/share/adminer/adminer.php
 ESCAPED_ADMINER_VERSION=`echo $ADMINER_VERSION | sed 's/\./\\\\./g'`
 sed -i 's/ADMINER_VERSION/'$ESCAPED_ADMINER_VERSION'/' /usr/share/adminer/adminer.php
 
 # PHP.ini
-cp $VM_CONFIG_PATH/php.ini.htaccess /var/www/.htaccess
+cp $CONFIG_PATH/php.ini.htaccess /var/www/.htaccess
 
 # Modules
 a2enmod rewrite vhost_alias
@@ -549,9 +551,10 @@ cd ~/vm/ubuntu-18-04
 vagrant up --provision
 ```
 
-Or if you have a different projects path under your home directory.
+Or if you have a different projects path under your home directory:
 
 ```bash
+cd ~/vm/ubuntu-18-04
 PROJECTS_PATH="Web" vagrant up --provision
 ```
 
