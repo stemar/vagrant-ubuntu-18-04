@@ -254,11 +254,15 @@ http://localhost:8000
 
 You see the "Apache2 Ubuntu Default Page".
 
+### Check your domain
+
+In host browser: (replace `example.com` with your domain)
+
 ```input
-http://example.com.localhost:8000
+http://example.com.localhost:8001
 ```
 
-You see the `example.com` home page.
+You see the home page.
 
 ### Check Adminer
 
