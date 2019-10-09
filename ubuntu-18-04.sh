@@ -1,4 +1,5 @@
 # CONFIG_PATH set as environment variable
+# PROJECTS_PATH set as environment variable
 
 echo '==> Setting time zone'
 
@@ -65,6 +66,7 @@ a2enconf localhost
 # VirtualHost(s)
 cp $CONFIG_PATH/virtualhost.conf /etc/apache2/sites-available/virtualhost.conf
 a2ensite virtualhost
+sed -i 's#PROJECTS_PATH#'$PROJECTS_PATH'#' /etc/apache2/sites-available/virtualhost.conf
 
 # Adminer
 cp $CONFIG_PATH/adminer.conf /etc/apache2/conf-available/adminer.conf
