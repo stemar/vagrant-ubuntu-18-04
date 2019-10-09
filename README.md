@@ -94,7 +94,7 @@ mkdir -p ~/vm && cd ~/vm
 git clone https://github.com/stemar/vagrant-ubuntu-18-04.git ubuntu-18-04
 ```
 
-> You can have more than one vagrant dirtree under the `~/vm` directory.
+> You can have more than one vagrant dirtree under the `~/vm` directory.  
 > Ex.: `git clone https://github.com/stemar/vagrant-centos-7-6.git centos-7-6`
 
 ### Separate VMs dirtree
