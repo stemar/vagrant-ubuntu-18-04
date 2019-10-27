@@ -11,10 +11,10 @@ plus install Python, Ruby, Rails, Node.js, Codeception, Java, Selenium, headless
 In host terminal:
 
 ```bash
-mkdir -p ~/vm && cd ~/vm
+mkdir -p ~/vm && cd $_
 git clone https://github.com/stemar/vagrant-ubuntu-18-04.git ubuntu-18-04
 cd ~/vm/ubuntu-18-04
-PROJECTS_PATH="projects" vagrant up --provision
+vagrant up --provision
 vagrant ssh
 ```
 
@@ -90,7 +90,7 @@ cat ~/.gitconfig
 In host terminal:
 
 ```bash
-mkdir -p ~/vm && cd ~/vm
+mkdir -p ~/vm && cd $_
 git clone https://github.com/stemar/vagrant-ubuntu-18-04.git ubuntu-18-04
 ```
 
@@ -118,7 +118,7 @@ Of course, you would have a `root` password on a server but this is a virtual ma
 As of version 4.6.3, Adminer is blocking any user with no password.
 To allow `root` with no password, `config/adminer.php` is created.
 
-`ADMINER_VERSION` will be substituted by a `sed` command in the `ubuntu-18-04.sh` provision script.
+> The constant`ADMINER_VERSION` will be substituted by a `sed` command in the `ubuntu-18-04.sh` provision script.
 
 ### php.ini file
 
@@ -128,11 +128,20 @@ We don't want to edit `php.ini` directly but we want to add a development-relate
 > ([except when PHP is installed as CGI](http://php.net/manual/en/configuration.file.per-user.php)
 > which is not the case here).
 
-We have to do it with `.htaccess` at the `/var/www` level; see [PHP configuration settings](http://php.net/manual/en/configuration.changes.php)
+We have to do it with `.htaccess` at the `/var/www` level;
+see [PHP configuration settings](http://php.net/manual/en/configuration.changes.php)
 
 ## Provision ubuntu-18-04
 
-Edit the environment variable `PROJECTS_PATH` value with your own path name under your home directory.
+> You will see many red line warnings from `apt-get` during provisioning but let the script finish,
+> most of them are not fatal errors.
+
+You can prepend the `vagrant up` command with these environment variables or
+you can edit `Vagrantfile`.
+
+### PROJECTS_PATH
+
+Add the environment variable `PROJECTS_PATH` with your own path name under your home directory.
 Name it the same name to reduce confusion.
 Ex.: if the host machine has `~/projects` a.k.a. `/Users/stemar/projects`,
 the guest machine will have `~/projects`, a.k.a. `/home/vagrant/projects`.
@@ -144,7 +153,29 @@ cd ~/vm/ubuntu-18-04
 PROJECTS_PATH="projects" vagrant up --provision
 ```
 
-> You might see many red line warnings from `apt-get` during provisioning but let the script finish, most of them are not fatal errors.
+### PORT_80
+
+Add the environment variable `PORT_80` with a port number to redirect to.
+Ex.: redirect port 80 to port 8080.
+
+In host terminal:
+
+```bash
+cd ~/vm/ubuntu-18-04
+PORT_80=8080 vagrant up --provision
+```
+
+### PORT_3306
+
+Add the environment variable `PORT_3306` with a port number to redirect to.
+Ex.: redirect port 3306 to port 33061.
+
+In host terminal:
+
+```bash
+cd ~/vm/ubuntu-18-04
+PORT_80=8080 PORT_3306=33061 vagrant up --provision
+```
 
 ### If you get this error after VirtualBox Guest Additions plugin changed versions
 
@@ -256,10 +287,12 @@ You see the "Apache2 Ubuntu Default Page".
 
 ### Check your domain
 
-In host browser: (replace `example.com` with your domain)
+Ex.: Replace `example.com` with your domain and the port number with your custom redirect number.
+
+In host browser:
 
 ```input
-http://example.com.localhost:8001
+http://example.com.localhost:8000
 ```
 
 You see the home page.
