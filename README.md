@@ -150,7 +150,7 @@ In host terminal:
 
 ```bash
 cd ~/vm/ubuntu-18-04
-PROJECTS_PATH="projects" vagrant up --provision
+PROJECTS_PATH=projects vagrant up --provision
 ```
 
 ### PORT_80
@@ -210,7 +210,7 @@ Halt the box and redo up
 
 ```bash
 vagrant halt
-PROJECTS_PATH="projects" vagrant up --provision
+PROJECTS_PATH=projects vagrant up --provision
 ```
 
 ### If something goes wrong
@@ -222,7 +222,7 @@ vagrant halt -f
 OR
 vagrant destroy -f
 AND
-PROJECTS_PATH="projects" vagrant up --provision
+PROJECTS_PATH=projects vagrant up --provision
 ```
 
 ## Log in ubuntu-18-04
