@@ -7,12 +7,8 @@ echo '==> Installing Linux tools'
 
 apt-get -qq update
 apt-get -qq install bash-completion curl tree zip unzip pv whois
-#cp $CONFIG_PATH/bashrc /home/vagrant/.bashrc
-#chown vagrant:vagrant /home/vagrant/.bashrc
-#source /home/vagrant/.bashrc
 cp $CONFIG_PATH/bash_aliases /home/vagrant/.bash_aliases
 chown vagrant:vagrant /home/vagrant/.bash_aliases
-#source /home/vagrant/.bash_aliases
 
 echo '==> Installing Git'
 
