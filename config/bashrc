@@ -1,1 +1,0 @@
-export HISTCONTROL=ignoreboth:erasedups
