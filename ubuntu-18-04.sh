@@ -6,8 +6,7 @@ cat /etc/timezone
 echo '==> Installing Linux tools'
 
 apt-get -qq update
-apt-get -qq install bash-completion
-apt-get -qq install curl tree zip unzip pv whois
+apt-get -qq install bash-completion curl tree zip unzip pv whois
 cp $CONFIG_PATH/bashrc /home/vagrant/.bashrc
 chown vagrant:vagrant /home/vagrant/.bashrc
 cp $CONFIG_PATH/bash_aliases /home/vagrant/.bash_aliases
