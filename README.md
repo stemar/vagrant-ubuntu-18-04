@@ -1,7 +1,6 @@
 # Vagrant box Ubuntu 18.04 LAMP
 
-Make a Vagrant box with Ubuntu 18.04 LAMP stack, plus configure it for development,
-plus install Python, Ruby, Rails, Node.js, Codeception, Java, Selenium, headless Chrome browser.
+Make a Vagrant box with Ubuntu 18.04 LAMP stack, plus configure it for development.
 
 - Host: Linux or Mac.
 - Guest: Ubuntu 18.04, Apache 2.4, MariaDB 10.3, PHP 7.2, Git 2.18.
