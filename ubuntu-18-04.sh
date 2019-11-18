@@ -57,7 +57,7 @@ a2enconf localhost
 
 # VirtualHost(s)
 cp $CONFIG_PATH/virtualhost.conf /etc/apache2/sites-available/virtualhost.conf
-sed -i 's#PROJECTS_PATH#'$PROJECTS_PATH'#' /etc/apache2/sites-available/virtualhost.conf
+sed -i 's#PROJECTS_DIR#'$PROJECTS_DIR'#' /etc/apache2/sites-available/virtualhost.conf
 sed -i 's#PORT_80#'$PORT_80'#' /etc/apache2/sites-available/virtualhost.conf
 a2ensite virtualhost
 
