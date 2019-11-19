@@ -1,1 +1,1 @@
-alias ll="ls -lAFGh"
+alias ll="ls -lAFh"
