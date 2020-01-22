@@ -12,4 +12,4 @@ function adminer_object() {
         new AdminerLoginPasswordLess(""),
     ));
 }
-include "./adminer-ADMINER_VERSION.php";
+include "./adminer-latest.php";

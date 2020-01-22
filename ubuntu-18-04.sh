@@ -39,7 +39,7 @@ echo '==> Installing Adminer'
 
 if [ ! -d /usr/share/adminer ]; then
     mkdir -p /usr/share/adminer/plugins
-    curl -LsS https://github.com/vrana/adminer/releases/download/v$ADMINER_VERSION/adminer-$ADMINER_VERSION.php -o /usr/share/adminer/adminer-$ADMINER_VERSION.php
+    curl -LsS https://www.adminer.org/latest-en.php -o /usr/share/adminer/adminer-latest.php
     curl -LsS https://raw.githubusercontent.com/vrana/adminer/master/plugins/plugin.php -o /usr/share/adminer/plugins/plugin.php
     curl -LsS https://raw.githubusercontent.com/vrana/adminer/master/plugins/login-password-less.php -o /usr/share/adminer/plugins/login-password-less.php
     curl -LsS https://raw.githubusercontent.com/vrana/adminer/master/designs/nicu/adminer.css -o /usr/share/adminer/adminer.css
@@ -63,8 +63,6 @@ cp $CONFIG_PATH/adminer.conf /etc/apache2/conf-available/adminer.conf
 sed -i 's#PORT_80#'$PORT_80'#' /etc/apache2/conf-available/adminer.conf
 a2enconf adminer
 cp $CONFIG_PATH/adminer.php /usr/share/adminer/adminer.php
-ESCAPED_ADMINER_VERSION=`echo $ADMINER_VERSION | sed 's/\./\\\\./g'`
-sed -i 's#ADMINER_VERSION#'$ESCAPED_ADMINER_VERSION'#' /usr/share/adminer/adminer.php
 
 # PHP.ini
 cp $CONFIG_PATH/php.ini.htaccess /var/www/.htaccess
@@ -98,4 +96,3 @@ echo $(mysql -V)
 echo $(php -v | head -n1)
 echo $(python --version)
 echo $(python3 --version)
-echo Adminer $ADMINER_VERSION
