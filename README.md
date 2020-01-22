@@ -131,7 +131,7 @@ see [PHP configuration settings](http://php.net/manual/en/configuration.changes.
 > You will see many red line warnings from `apt-get` during provisioning but let the script finish,
 > most of them are not fatal errors.
 
-You can prepend the `vagrant up` command with these environment variables or
+If you want to override the defaults, you can prepend the `vagrant up` command with these environment variables or
 you can edit `Vagrantfile`.
 
 ### PROJECTS_DIR
