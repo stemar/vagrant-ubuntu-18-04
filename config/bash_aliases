@@ -1,1 +1,2 @@
 alias ll="ls -lAFh"
+alias nano="nano -cw"
