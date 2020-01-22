@@ -7,6 +7,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "ubuntu-18-04"
   config.vm.box = "bento/ubuntu-18.04" # 64GB HDD
   config.vm.provider "virtualbox" do |vb|
+    vb.name = "ubuntu-18-04"
     vb.memory = "3072" # 3GB RAM
     vb.cpus = 1
   end
