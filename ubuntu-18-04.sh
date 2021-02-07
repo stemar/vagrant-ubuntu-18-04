@@ -20,6 +20,7 @@ apt-get -qq install apache2
 
 echo '==> Setting MariaDB 10.3 repository'
 
+# https://downloads.mariadb.org/mariadb/repositories/#mirror=digitalocean-sfo&version=10.3
 apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
 add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://sfo1.mirrors.digitalocean.com/mariadb/repo/10.3/ubuntu bionic main'
 apt-get -qq update
