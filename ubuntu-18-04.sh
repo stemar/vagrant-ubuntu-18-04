@@ -20,8 +20,8 @@ apt-get -qq install apache2
 
 echo '==> Setting MariaDB 10.3 repository'
 
-apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
-add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://ftp.utexas.edu/mariadb/repo/10.3/ubuntu bionic main'
+apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
+add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://sfo1.mirrors.digitalocean.com/mariadb/repo/10.3/ubuntu bionic main'
 apt-get -qq update
 
 echo '==> Installing MariaDB'
@@ -33,7 +33,7 @@ echo '==> Installing PHP'
 apt-get -qq install php7.2 libapache2-mod-php7.2 libphp7.2-embed \
     php7.2-bcmath php7.2-bz2 php7.2-cli php7.2-curl php7.2-fpm php7.2-gd php7.2-imap php7.2-intl php7.2-json \
     php7.2-mbstring php7.2-mysql php7.2-mysqlnd php7.2-opcache php7.2-pgsql php7.2-pspell php7.2-readline \
-    php7.2-soap php7.2-sqlite3 php7.2-tidy php7.2-xdebug php7.2-xml php7.2-xmlrpc php7.2-zip
+    php7.2-soap php7.2-sqlite3 php7.2-tidy php7.2-xdebug php7.2-xml php7.2-xmlrpc php7.2-yaml php7.2-zip
 
 echo '==> Installing Adminer'
 
