@@ -1,0 +1,29 @@
+---
+:machine:
+  :hostname: "ubuntu-18-04"
+  :memory: "3072" # 3GB RAM
+  :cpus: 1
+
+:forwarded_ports:
+# SSH
+- :id: ssh
+  :host: 2200
+  :guest: 22
+# HTTP
+- :host: 8000
+  :guest: 80
+# MySQL
+- :host: 33060
+  :guest: 3306
+
+:synced_folder:
+  :host: "~/Code"
+  :guest: "/home/vagrant/Code"
+
+:copy_files:
+- :source: "~/.ssh"
+  :destination: "/home/vagrant/.ssh"
+- :source: "~/.gitconfig"
+  :destination: "/home/vagrant/.gitconfig"
+- :source: "~/.subversion"
+  :destination: "/home/vagrant/.subversion"
