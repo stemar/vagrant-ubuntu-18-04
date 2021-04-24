@@ -177,7 +177,7 @@ cat /etc/apache2/conf-available/adminer.conf
 cat /var/log/apache2/error.log
 ```
 
-Check MySQL databases:
+Check MariaDB databases:
 
 ```bash
 mysql -u root
