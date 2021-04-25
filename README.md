@@ -78,10 +78,10 @@ cat ~/.gitconfig
 Edit values in `settings.yaml`.
 
 - Edit the `:machine` values if necessary.
-- Add arrays to the `forwarded_ports` value if necessary.
+- Add arrays to the `:forwarded_ports` value if necessary.
     - Ex.: Change the forwarded ports of this virtual machine to avoid port collision if you have multiple virtual machines running at the same time.
-- Change `synced_folder` values to match your host machine pathname.
-- Edit the `copy_files` values:
+- Change `:synced_folder` values to match your host machine pathname.
+- Edit the `:copy_files` values:
     - Ex.: Remove the Subversion array if you don't have it on your host machine.
 
 ---
