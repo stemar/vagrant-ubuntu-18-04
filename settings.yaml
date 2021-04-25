@@ -1,8 +1,8 @@
 ---
 :machine:
+  :hostname: ubuntu-18-04
   :timezone: Canada/Pacific
-  :hostname: "ubuntu-18-04"
-  :memory: "3072" # 3GB RAM
+  :memory: 3072 # 3GB RAM
   :cpus: 1
 
 :forwarded_ports:
@@ -18,13 +18,13 @@
   :guest: 3306
 
 :synced_folder:
-  :host: "~/Code"
-  :guest: "/home/vagrant/Code"
+  :host: ~/Code
+  :guest: /home/vagrant/Code
 
 :copy_files:
-- :source: "~/.ssh"
-  :destination: "/home/vagrant/.ssh"
-- :source: "~/.gitconfig"
-  :destination: "/home/vagrant/.gitconfig"
-- :source: "~/.subversion"
-  :destination: "/home/vagrant/.subversion"
+- :source: ~/.ssh
+  :destination: /home/vagrant/.ssh
+- :source: ~/.gitconfig
+  :destination: /home/vagrant/.gitconfig
+- :source: ~/.subversion
+  :destination: /home/vagrant/.subversion
