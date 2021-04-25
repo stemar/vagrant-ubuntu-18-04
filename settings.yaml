@@ -28,3 +28,4 @@
   :destination: /home/vagrant/.gitconfig
 - :source: ~/.subversion
   :destination: /home/vagrant/.subversion
+...
