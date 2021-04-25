@@ -77,7 +77,7 @@ cat ~/.gitconfig
 
 Edit values in `settings.yaml`.
 
-- Edit the virtual machine's `hostname` or the `memory` values if necessary.
+- Edit the `:machine` values if necessary.
 - Add arrays to the `forwarded_ports` value if necessary.
     - Ex.: Change the forwarded ports of this virtual machine to avoid port collision if you have multiple virtual machines running at the same time.
 - Change `synced_folder` values to match your host machine pathname.

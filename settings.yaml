@@ -1,5 +1,6 @@
 ---
 :machine:
+  :timezone: Canada/Pacific
   :hostname: "ubuntu-18-04"
   :memory: "3072" # 3GB RAM
   :cpus: 1
