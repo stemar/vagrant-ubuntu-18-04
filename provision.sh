@@ -50,10 +50,12 @@ apt-get -q=2 install php7.4 libapache2-mod-php7.4 libphp7.4-embed \
     php7.4-bcmath php7.4-bz2 php7.4-cli php7.4-curl php7.4-fpm php7.4-gd php7.4-imap php7.4-intl php7.4-json \
     php7.4-mbstring php7.4-mysql php7.4-mysqlnd php7.4-opcache php7.4-pgsql php7.4-pspell php7.4-readline \
     php7.4-soap php7.4-sqlite3 php7.4-tidy php7.4-xdebug php7.4-xml php7.4-xmlrpc php7.4-yaml php7.4-zip > /dev/null 2>&1
-cp $VM_CONFIG_PATH/php.ini.htaccess /var/www/.htaccess
 a2dismod mpm_event > /dev/null 2>&1
 a2enmod mpm_prefork > /dev/null 2>&1
 a2enmod php7.4 > /dev/null 2>&1
+cp $VM_CONFIG_PATH/php.ini.htaccess /var/www/.htaccess
+PHP_ERROR_REPORTING_INT=$(php -r 'echo '"$PHP_ERROR_REPORTING"';')
+sed -i 's|PHP_ERROR_REPORTING|'$PHP_ERROR_REPORTING_INT'|' /var/www/.htaccess
 
 echo '==> Installing Adminer'
 

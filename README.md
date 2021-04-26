@@ -83,6 +83,20 @@ Edit values in `settings.yaml`.
 - Change `:synced_folder` values to match your host machine pathname.
 - Edit the `:copy_files` values:
     - Ex.: Remove the Subversion array if you don't have it on your host machine.
+- Edit the `:php_error_reporting` value if necessary.
+
+Edit `config` files if needed.
+
+- Edit the `VirtualDocumentRoot` public directory value in `virtualhost.conf`.
+- Add `VirtualHost`s in `virtualhost.conf`.
+- Edit `php.ini.htaccess` values.
+- Add/edit lines to `bash_aliases`.
+
+Edit `provision.sh` if needed.
+
+- Add/edit Linux tools.
+- Add/edit PHP libraries.
+- Add anything you need.
 
 ---
 
