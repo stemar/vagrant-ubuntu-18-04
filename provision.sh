@@ -3,6 +3,10 @@ echo '==> Setting time zone'
 timedatectl set-timezone $TIMEZONE
 cat /etc/timezone
 
+echo '==> Updating Ubuntu repositories'
+
+apt-get -q=2 update --fix-missing
+
 echo '==> Installing Linux tools'
 
 cp $VM_CONFIG_PATH/bash_aliases /home/vagrant/.bash_aliases
