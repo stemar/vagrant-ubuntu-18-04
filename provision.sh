@@ -87,7 +87,6 @@ echo '==> Cleaning apt cache'
 
 apt-get -q=2 autoclean
 apt-get -q=2 autoremove
-apt-get -q=2 clean
 
 echo '==> Versions:'
 
