@@ -188,7 +188,7 @@ ll /etc/apache2/sites-enabled
 cat /etc/apache2/conf-available/localhost.conf
 cat /etc/apache2/sites-available/virtualhost.conf
 cat /etc/apache2/conf-available/adminer.conf
-cat /var/log/apache2/error.log
+sudo cat /var/log/apache2/error.log
 ```
 
 Check MariaDB databases:
