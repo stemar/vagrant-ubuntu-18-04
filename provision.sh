@@ -90,13 +90,13 @@ apt-get -q=2 autoremove
 
 echo '==> Versions:'
 
-lsb_release -d
-echo $(openssl version)
-echo $(curl --version | head -n1)
-echo $(svn --version | grep svn,)
-echo $(git --version)
-echo $(apache2 -v | head -n1)
-echo $(mysql -V)
-echo $(php -v | head -n1)
-echo $(python --version)
-echo $(python3 --version)
+lsb_release -d | cut -f 2
+openssl version
+curl --version | head -n1 | cut -d '(' -f 1
+svn --version | grep svn,
+git --version
+apache2 -v | head -n1
+mysql -V
+php -v | head -n1
+python --version 2>/dev/stdout
+python3 --version
