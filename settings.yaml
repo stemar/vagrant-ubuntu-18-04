@@ -1,9 +1,11 @@
 ---
 :machine:
-  :hostname: ubuntu-18-04
-  :timezone: Canada/Pacific
+  # https://app.vagrantup.com/bento/boxes/ubuntu-18-04
+  :box: bento/ubuntu-18.04 # 64GB HDD
   :memory: 3072 # 3GB RAM
   :cpus: 1
+  :hostname: ubuntu-18-04
+  :timezone: Canada/Pacific
 
 :forwarded_ports:
 # SSH
@@ -13,7 +15,7 @@
 # HTTP
 - :host: 8000
   :guest: 80
-# MySQL
+# dB
 - :host: 33060
   :guest: 3306
 

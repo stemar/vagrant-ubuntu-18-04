@@ -10,6 +10,10 @@ Make a Vagrant box with Ubuntu 18.04 LAMP stack, plus configure it for developme
 
 ---
 
+## Details
+
+Read [Stemar Vagrant boxes](https://stemar.github.io/vagrant).
+
 ## Summary
 
 VM = virtual machine
