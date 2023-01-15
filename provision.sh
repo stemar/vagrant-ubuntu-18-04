@@ -59,11 +59,15 @@ sed -i 's|PHP_ERROR_REPORTING|'$PHP_ERROR_REPORTING_INT'|' /var/www/.htaccess
 echo '==> Installing Adminer'
 
 if [ ! -d /usr/share/adminer ]; then
-    mkdir -p /usr/share/adminer
-    curl -LsS https://www.adminer.org/latest-en.php -o /usr/share/adminer/adminer.php
-    sed -i 's|{if($F=="")return|{if(true)|' /usr/share/adminer/adminer.php
+    mkdir -p /usr/share/adminer/plugins
+    curl -LsS https://www.adminer.org/latest-en.php -o /usr/share/adminer/latest-en.php
+    curl -LsS https://raw.githubusercontent.com/vrana/adminer/master/plugins/plugin.php -o /usr/share/adminer/plugins/plugin.php
+    curl -LsS https://raw.githubusercontent.com/vrana/adminer/master/plugins/login-password-less.php -o /usr/share/adminer/plugins/login-password-less.php
+    curl -LsS https://raw.githubusercontent.com/vrana/adminer/master/plugins/dump-json.php -o /usr/share/adminer/plugins/dump-json.php
+    curl -LsS https://raw.githubusercontent.com/vrana/adminer/master/plugins/pretty-json-column.php -o /usr/share/adminer/plugins/pretty-json-column.php
     curl -LsS https://raw.githubusercontent.com/vrana/adminer/master/designs/nicu/adminer.css -o /usr/share/adminer/adminer.css
 fi
+cp /vagrant/config/adminer.php /usr/share/adminer/adminer.php
 cp /vagrant/config/adminer.conf /etc/apache2/conf-available/adminer.conf
 sed -i 's|FORWARDED_PORT_80|'$FORWARDED_PORT_80'|' /etc/apache2/conf-available/adminer.conf
 a2enconf adminer &>/dev/null
