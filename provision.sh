@@ -38,20 +38,19 @@ echo '==> Installing MariaDB'
 
 DEBIAN_FRONTEND=noninteractive apt-get -q=2 install mariadb-server &>/dev/null
 
-echo '==> Setting PHP 7.4 repository'
+echo '==> Setting PHP 7.2 repository'
 
-add-apt-repository -y ppa:ondrej/php &>/dev/null
 apt-get -q=2 update
 
 echo '==> Installing PHP'
 
-apt-get -q=2 install php7.4 libapache2-mod-php7.4 libphp7.4-embed \
-    php7.4-bcmath php7.4-bz2 php7.4-cli php7.4-curl php7.4-fpm php7.4-gd php7.4-imap php7.4-intl php7.4-json \
-    php7.4-mbstring php7.4-mysql php7.4-mysqlnd php7.4-opcache php7.4-pgsql php7.4-pspell php7.4-readline \
-    php7.4-soap php7.4-sqlite3 php7.4-tidy php7.4-xdebug php7.4-xml php7.4-xmlrpc php7.4-yaml php7.4-zip &>/dev/null
+apt-get -q=2 install php7.2 libapache2-mod-php7.2 libphp7.2-embed \
+    php7.2-bcmath php7.2-bz2 php7.2-cli php7.2-curl php7.2-fpm php7.2-gd php7.2-imap php7.2-intl php7.2-json \
+    php7.2-mbstring php7.2-mysql php7.2-mysqlnd php7.2-opcache php7.2-pgsql php7.2-pspell php7.2-readline \
+    php7.2-soap php7.2-sqlite3 php7.2-tidy php7.2-xdebug php7.2-xml php7.2-xmlrpc php7.2-yaml php7.2-zip &>/dev/null
 a2dismod mpm_event &>/dev/null
 a2enmod mpm_prefork &>/dev/null
-a2enmod php7.4 &>/dev/null
+a2enmod php7.2 &>/dev/null
 cp /vagrant/config/php.ini.htaccess /var/www/.htaccess
 PHP_ERROR_REPORTING_INT=$(php -r 'echo '"$PHP_ERROR_REPORTING"';')
 sed -i 's|PHP_ERROR_REPORTING|'$PHP_ERROR_REPORTING_INT'|' /var/www/.htaccess

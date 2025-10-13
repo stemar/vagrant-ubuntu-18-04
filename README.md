@@ -3,7 +3,7 @@
 Make a Vagrant box with Ubuntu 18.04 LAMP stack, plus configure it for development.
 
 - Host: Linux or Mac.
-- Guest: Ubuntu 18.04, Apache 2.4, MariaDB 10.6, PHP 7.4, Git 2+.
+- Guest: Ubuntu 18.04, Apache 2.4, MariaDB 10.6, PHP 7.2, Python 3.6, Git 2+.
 
 - Leave code and version control files physically outside the VM while virtually accessing them inside the VM.
 - Use any GUI tool (IDEs, browsers, database administration applications, Git clients) outside the VM to access code and data inside the VM.
@@ -168,7 +168,7 @@ Check versions:
 
 ```bash
 lsb_release -a
-apache2 -v
+sudo apache2 -v
 mysql -V
 php -v
 svn --version
@@ -180,8 +180,8 @@ curl --version
 Check Apache configuration:
 
 ```bash
-apachectl configtest
-apachectl -V
+sudo apachectl configtest
+sudo apachectl -V
 cat /etc/hosts
 cat /etc/apache2/apache2.conf
 cat /etc/apache2/envvars
