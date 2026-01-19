@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.10 - 2026-01-19
+
+### Changed
+
+- Changed Adminer theme.
+
 ## 1.0.9 - 2026-01-18
 
 ### Changed
