@@ -10,7 +10,6 @@
 
 ### Changed
 
-- Changed the MariaDB mirror URL for version 11.8
 - Modified alias `ll` in `config/bash_aliases`
 - Updated `README.md`
 
